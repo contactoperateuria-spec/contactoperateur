@@ -575,7 +575,10 @@ footer { background: var(--glass); backdrop-filter: blur(12px); border-top: 1px 
         </div>
         <p class="contact-note">Décrivez votre besoin, je vous réponds sous 24 h avec un premier cadrage.</p>
       </div>
-      <form class="contact-form" id="contact-form" onsubmit="submitForm(event)">
+      <form class="contact-form" id="contact-form" action="https://formsubmit.co/contactoperateur.ia@gmail.com" method="POST" onsubmit="submitForm(event)">
+        <input type="hidden" name="_subject" value="Nouveau message — L'Opérateur">
+        <input type="hidden" name="_next" value="https://contactoperateuria-spec.github.io/contactoperateur/">
+        <input type="hidden" name="_captcha" value="false">
         <div class="form-row">
           <div class="form-field">
             <label class="form-label" for="f-nom">Nom</label>
@@ -633,8 +636,7 @@ function copyEmail() {
   }).catch(() => { btn.textContent = email; });
 }
 function submitForm(e) {
-  e.preventDefault();
-  document.getElementById('form-success').classList.add('visible');
-  const btn = document.getElementById('form-btn'); btn.textContent = 'Envoyé'; btn.disabled = true;
+  const btn = document.getElementById('form-btn');
+  btn.textContent = 'Envoi en cours…'; btn.disabled = true;
 }
 </script>
